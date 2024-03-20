@@ -1,0 +1,345 @@
+/* -----------------
+Tabla de contenidos:
+--------------------
+1. Fuente ................ 11
+2. Variables ............. 17
+3. Estilos generales ..... 32
+-------------------- 
+*/
+
+
+/* ----- Fuente ----- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+/* ----- Variables ----- */
+:root {
+  /* Paleta de colores */
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+  --white: hsl(0, 0%, 100%);
+  --very-light-grayish-blue: hsl(210, 60%, 98%);
+  --light-grayish-blue-1: hsl(211, 68%, 94%);
+  --light-grayish-blue-2: hsl(205, 33%, 90%);
+  --grayish-blue: hsl(219, 14%, 63%);
+  --dark-grayish-blue: hsl(219, 12%, 42%);
+  --very-dark-blue: hsl(224, 21%, 14%);
+
+  /* Tipografia */
+  --font-family: 'Plus Jakarta Sans', sans-serif;
+  --font-weight-regular: 500;
+  --font-weight-bold: 800;
+  --font-size-paragraph: 16px;
+}
+
+
+/* ----------------------------- */
+/* ----- Estilos generales ----- */
+/* ----------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size-paragraph);
+  color: var(--dark-grayish-blue);
+  background-color: var(--light-grayish-blue);
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+  height: 80%;
+  margin: 4rem 0;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------ MAIN HEADER ------------ */
+
+.main__container .main__container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.main__container .main__container__header .header__title {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--very-dark-blue);
+}
+
+.main__container .main__container__header .header__title .header__notification_number {
+  padding: 0.25rem 0.6rem;
+  font-size: .9rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--white);
+  border-radius: 6px;
+  background-color: var(--blue);
+}
+
+.main__container .main__container__header .header__mark_all {
+  color: var(--dark-grayish-blue);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color .3s ease;
+}
+
+.main__container .main__container__header .header__mark_all:hover {
+  color: var(--blue);
+}
+
+/* ------------ MAIN CONTENT ------------ */
+
+.main__container .main__container__notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.main__container .main__container__notifications .notification__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  min-height: 80px;
+  padding: .8rem 1rem;
+  border-radius: 10px;
+  transition: background-color .3s ease;
+}
+
+.main__container .main__container__notifications .notification__item.no_read {
+  background-color: var(--very-light-grayish-blue);
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__user_image_content {
+  width: 50px;
+  height: 50px;
+  padding-top: 3px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__user_image_content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 70px);
+  padding-top: 5px;
+  line-height: 1.5;
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text {
+  transition: all .3s ease;
+}
+
+.main__container .main__container__notifications .notification__item.no_read .notification__item__content .notification__item__content__text .dot_no_read {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+  border-radius: 50%;
+  background-color: var(--red);
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__user_name {
+  margin-right: 5px;
+  margin-left: 0 !important;
+  color: var(--very-dark-blue);
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag {
+  color: var(--blue);
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__user_name,
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag_post,
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag {
+  margin-left: 5px;
+  font-weight: var(--font-weight-bold);
+  transition: color .3s ease;
+  cursor: pointer;
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__user_name:hover,
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag_post:hover,
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag:hover {
+  color: var(--blue);
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__item__date {
+  color: var(--grayish-blue);
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__message {
+  margin-top: 5px;
+  padding: 1rem;
+  border: 1px solid var(--light-grayish-blue-2);
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.main__container .main__container__notifications .notification__item .notification__item__content .notification__message:hover {
+  background-color: var(--light-grayish-blue-1);
+}
+
+.main__container .notification__item .notification__item__picture {
+  width: 55px;
+  height: 50px;
+  margin-left: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow .3s ease;
+}
+
+.main__container .notification__item .notification__item__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main__container .notification__item .notification__item__picture:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px .5px rgba(0, 0, 0, 0.3);
+}
+
+/* ------------ MEDIA QUERIES ------------ */
+@media (width < 769px) {
+  .main__container {
+    width: 100%;
+    margin: 0;
+    padding-inline: .6rem;
+  }
+
+  .main__container .main__container__header .header__title {
+    font-size: 24px;
+  }
+
+  .main__container .main__container__header .header__title .header__notification_number {
+    padding: 0.10rem 0.6rem;
+    font-size: 22px;
+  }
+
+  /* ------------ MAIN CONTENT ------------ */
+
+  .main__container .main__container__notifications .notification__item {
+    gap: 14px;
+    padding-inline-end: .5rem;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__user_image_content {
+    width: 52px;
+    height: 52px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content {
+    width: calc(100% - 70px);
+    padding-top: 0;
+    padding-inline-end: 0;
+  }
+
+  .main__container .main__container__notifications .notification__item:nth-child(5) .notification__item__content {
+    width: calc(100% - 120px);
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__user_name {
+    margin-right: 3px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag_post,
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text .notification__item__tag {
+    margin-left: 0;
+  }
+
+  .main__container .main__container__notifications .notification__item.no_read .notification__item__content .notification__item__content__text .dot_no_read {
+    margin-bottom: 0;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__item__date {
+    font-size: 15px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__message {
+    padding: .5rem 1rem;
+    font-size: 16px;
+  }
+
+  .main__container .notification__item .notification__item__picture {
+    width: 45px;
+  }
+}
+
+@media (width < 376px) {
+  .main__container {
+    padding-inline: .8rem;
+  }
+  .main__container .main__container__header .header__title {
+    align-items: flex-end;
+    font-size: 20px;
+  }
+
+  .main__container .main__container__header .header__title .header__notification_number {
+    padding: 0.25rem 0.5rem;
+    font-size: 14px;
+  }
+
+  .main__container .main__container__header .header__mark_all {
+    font-size: 15px;
+  }
+
+  /* ------------ MAIN CONTENT ------------ */
+
+  .main__container .main__container__notifications .notification__item {
+    gap: 12px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__user_image_content {
+    width: 40px;
+    height: 40px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content {
+    width: calc(100% - 55px);
+  }
+
+  .main__container .main__container__notifications .notification__item:nth-child(5) .notification__item__content {
+    width: calc(100% - 110px);
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__item__content__text {
+    font-size: 14px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__item__date {
+    font-size: 14px;
+  }
+
+  .main__container .main__container__notifications .notification__item .notification__item__content .notification__message {
+    font-size: 14px;
+  }
+}
